@@ -1,0 +1,67 @@
+<!--
+  @description       : 
+  @author            : Madhan
+  @group             : RafterOne
+  @last modified on  : 01-26-2023
+-->
+<template>
+    <div class="slds-m-top_large" if:true={canPay}>
+            <lightning-tabset active-tab-value={paymentType}>
+                <template if:true={summaryData.ApprovedForCredit}>
+                    <lightning-tab label="Purchase Order" value="PurchaseOrderNumber" onactive={handlePONumber}>
+                        <div class="payment-form">
+                            <h1 class="titile">Purchase Order Information</h1>
+                        <fieldset>
+                            <div class="slds-p-top_medium">
+                                <input type="text" class="po" id="po" placeholder='Enter Purchase Number'>
+                            </div>
+                        </fieldset>
+                        <template if:true={checkLimitButton}>
+                            <lightning-button variant="base" label="MY Wallet" class="button-form" onclick={checkLimitHandler} style="
+                            margin-left: 20px;
+                        "></lightning-button>
+                        </template>
+                        <template if:true={checkLimitData}>
+                            <lightning-formatted-text class="addType" value="Available Credit Limit: " style="
+                            font-size: inherit;
+                        "></lightning-formatted-text>
+                            <lightning-formatted-number class="checkType" value={summaryData.CreditLimit} format-style="currency" currency-code="USD" currency-display-as="symbol"></lightning-formatted-number>
+                        </template> 
+                        <div class="slds-m-top_small">
+                            <fieldset class="spf-field-submit">
+                                <button type="submit" class="submitButton" onclick={submitOrder}>Submit</button>
+                                
+                            </fieldset>  
+                        </div> 
+                        </div>
+                    </lightning-tab>
+                </template>
+                <lightning-tab label="Pay With Card" value="CardPayment" onactive={handleCreditPayment}>
+                    <div id="payment-form" class="payment-form">
+                        <h1 class="titile">Card Information</h1>
+                        <div class="slds-box" style="background-color: white; border-radius :20px;">
+                            <div  if:true={iframeUrl} >
+                                <iframe style="border: none;height: 20px;" width="100%" src={iframeUrl}></iframe>
+                            </div>
+        
+                        </div>
+                        <div class="slds-col slds-p-horizontal_medium">    
+                            <img src='https://i.postimg.cc/WzqdxNpw/mastercard.png' alt="Master Card" class="icon-height">
+                            &nbsp;&nbsp;
+                            &nbsp;&nbsp;
+                            <img src='https://i.postimg.cc/CKt78K2j/visa.png' alt="Visa" class="icon-height">
+                            &nbsp;&nbsp;
+                            &nbsp;&nbsp;
+                            <img src='https://i.postimg.cc/jdz1ryFB/american-Express.png' alt="American Express" class="icon-height">
+                        </div>
+                        <div class="slds-m-top_small">
+                            <fieldset class="spf-field-submit">
+                                <button type="submit" class="submitButton" onclick={submitOrder}>Submit</button>
+                                
+                            </fieldset>  
+                        </div>
+                    </div> 
+                </lightning-tab>
+            </lightning-tabset>
+    </div>
+</template>

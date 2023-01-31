@@ -1,0 +1,115 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: #ebf1f5;
+    font-family: sans-serif;
+    font-size: 100%;
+    color: #555;
+    margin: 0;
+    padding: 0;
+}
+
+.payment-form{
+    background: #F9F9F9;
+    width: max-content;
+}
+.number,.month,.year,.cvv,.po{
+    width: 100%;
+    padding: 10px;
+    outline: none;
+    border: none;
+    border-radius: 20px;
+}
+.cvv{
+    margin-left: 5px;
+}
+.crad-data{
+    display: flex;
+    padding-top: 20px;
+}
+
+
+
+.icon-height {
+    height: 50px;
+}
+
+.titile{
+    font-family: 'Noto Sans';
+font-style: normal;
+font-weight: 600;
+font-size: 16px;
+line-height: 24px;
+padding: 20px;
+}
+.submitButton{
+    padding: 10px;
+    width: 136px;
+    color: white;
+    background: #E8770A;
+    border: 1px solid #E8770A;
+    
+    border-radius: 50px;
+}
+.spf-field-submit{
+    display: flex;
+    justify-content: end;
+    align-items: flex-end;
+}
+fieldset {
+    border: none;
+    margin: 0;
+    padding: 1rem;
+}
+.spf-exp-divider {
+    display: inline-block;
+    margin: 0 .4em;
+    font-size: 200%;
+    line-height: 1.5;
+    position: relative;
+    top: .2em;
+}
+
+/* Small Screen Modifications*/
+
+@media screen and (max-width: 400px) {
+    .spf-form {
+        margin: 0 auto;
+    }
+}
+@media screen and (max-width: 625px) {
+    .spf-form {
+        width: 80%;
+    }
+}
+
+
+
+
+.form-bg {
+    background-color: rgb(242, 242, 242);
+    border-radius: 20px;
+}
+
+.button-form {
+    border-radius: 3rem;
+}
+
+lightning-input{
+    --slds-c-input-radius-border: 3rem;
+    border: none;
+}
+
+.addType{
+    color: #031723 !important;
+    font-size: 15px !important;
+    font-weight: 500 !important;
+}
+
+.checkType{
+    color: #031723 !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+}
